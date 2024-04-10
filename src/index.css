@@ -1,3 +1,5 @@
+/*ESTILOS GENERALES*/
+
 body{
   background: #d1defa;
   font-family: sans-serif, Arial, Helvetica;
@@ -8,7 +10,7 @@ body{
 
 .layout{
   width: 100%;
-  height: auto;
+  min-height: 900px;
 
   display: grid;
   grid-template-areas:
@@ -18,6 +20,7 @@ body{
       "footer footer footer footer"
   ;
   grid-template-rows: 100px 70px auto 70px;
+  grid-template-columns: 1fr 1fr 1fr 25%;
 }
 
 /*ESTILOS CABECERA*/
@@ -96,13 +99,13 @@ body{
   background: #f6f7f9;
 
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: initial;
   flex-grow: 1;
 }
 
-.peli-item{
+.articulo-item{
   flex-grow: 1;
   background: white;
   border-radius: 10px;
@@ -112,11 +115,84 @@ body{
   padding-bottom: 60px;
   padding-left: 25px;
   padding-right: 25px;
+  text-align: left;
+  max-height: 200px;
+
+  display: flex;
 }
 
+.articulo-item .edit {
+  margin-right: 20px;
+}
+
+.articulo-item .mascara {
+  width: 20%;
+  overflow: hidden;
+  margin-right: 40px;
+}
+
+.articulo-item .mascara img {
+  width: 100%; 
+  height: 150px; 
+  object-fit: cover; 
+  padding-top: 15%;
+}
+
+.img-articulo {
+  max-width: 30%; 
+  height: auto; 
+  display: block; 
+  margin: auto; 
+}
+
+
+.articulo-item h3 {
+  font-size: 30px;
+
+}
+
+.articulo-item h3 a{
+  text-decoration: none;
+  color: black;
+}
+
+.articulo-item h3 a:hover {
+  color: blue;
+}
+
+.jumbo {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px #ddd;
+  padding-bottom: 75px;
+  margin: 25px auto;
+  padding: 55px;
+  width: 85%;
+}
+
+.jumbo .mascara {
+  width: 50%;
+  height: 150px;
+  overflow: hidden;
+
+}
+
+.jumbo h1 {
+  font-size: 35px;
+  color: #444;
+}
+
+.jumbo p {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.button,
 button,
 input[type="submit"],
-input[type="button"]{
+input[type="button"],
+.edit{
+  text-decoration: none;
   width: 100px;
   background: #0b70e1;
   color: white;
@@ -132,11 +208,11 @@ input[type="button"]{
   transition: all 300ms;
 }
 
-.peli-item .edit:hover{
+.articulo-item .edit:hover{
   background: #e77b00;
 }
 
-.peli-item .delete:hover{
+.articulo-item .delete:hover{
   background: #9b0202;
 }
 
@@ -144,9 +220,10 @@ input[type="button"]{
 
 .lateral{
   grid-area: lateral;
-  background: #f6f7f9;
+  background-color: #f6f7f9;
   border-left: 1px solid #ddd;
   padding: 20px;
+  min-height: 490px;
 }
 
 .lateral > div{
@@ -158,14 +235,12 @@ input[type="button"]{
   background: white;
   border-radius: 10px;
   box-shadow: 0px 0px 6px #ddd;
+
 }
 
-.lateral input[type="text"],
-.lateral input[type="text"],
-.lateral textarea,
-.edit_form input[type="text"],
-.edit_form input[type="text"],
-.edit_form textarea
+input[type="text"],
+input[type="url"],
+textarea
 {
   display: block;
   margin: 0 auto;
@@ -184,6 +259,31 @@ input[type="button"]{
   border-top: 1px solid #ddd;
   margin-top: 10px;
 }
+
+.form-group {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form-group label {
+  display: block;
+  text-align: left;
+  color: #444;
+  margin-bottom: 7px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group textarea,
+.form-group input[type="file"]
+{
+  border: 1px solid #ddd;
+  outline: 0;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
 
 /*ESTILOS PARA EL PIE DE PÁGINA*/
 .footer{
@@ -209,7 +309,7 @@ input[type="button"]{
       align-items: center;
   }
 
-  .peli-item{
+  .articulo-item{
       width: 80%;
   }
 }
